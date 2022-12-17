@@ -1,5 +1,6 @@
 const Coach = require('../Model/Coach');
 const CategoryGenerator = require('../Utils/CategoryGenerator');
+const Shuffle = require('../Utils/Shuffle');
 
 class CoachGroup {
   #coachGroup = [];
@@ -8,6 +9,11 @@ class CoachGroup {
   constructor(coachesName) {
     this.bindCoach(coachesName);
     this.generateCategory();
+    this.#dayCategories.forEach((categoryNum) => {
+      this.#coachGroup.forEach((coach) => {
+        coach.getEatMenu(Shuffle.shuffle(categoryNum));
+      });
+    })
   }
 
   bindCoach(coachesName) {

@@ -11,8 +11,16 @@ class Coach {
     this.#notEatMenu = notEatsMenu.split(',');
   }
 
+  getEatMenu(eatMenu) {
+    this.#eatMenu.push(eatMenu);
+  }
+
   getName() {
     return this.#name;
+  }
+
+  showEatMenu() {
+    return this.#eatMenu;
   }
 }
 

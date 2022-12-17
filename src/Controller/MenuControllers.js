@@ -35,7 +35,7 @@ class MenuController {
   }
 
   showRecommendMenu() {
-    
+    OutputView.printResult();
   }
 }
 
