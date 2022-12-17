@@ -1,4 +1,5 @@
 const Coach = require('../Model/Coach');
+const CategoryGenerator = require('../Utils/CategoryGenerator');
 
 class CoachGroup {
   #coachGroup = [];
@@ -6,12 +7,7 @@ class CoachGroup {
   
   constructor(coachesName) {
     this.bindCoach(coachesName);
-    // for (let i = 0; i < 5; i++) {
-    //   let category = CategoryGenerator.generate();
-    //   if (this.#checkCategoryOverlap(category)) {
-    //     this.#dayCategories.push(category);
-    //   }
-    // }
+    this.generateCategory();
   }
 
   bindCoach(coachesName) {
@@ -21,12 +17,27 @@ class CoachGroup {
     });
   }
 
+  generateCategory() {
+    for (let i = 0; i < 5; i++) {
+      let category = CategoryGenerator.generate();
+      if (this.checkCategoryOverlap(category)) {
+        this.#dayCategories.push(category);
+      }
+    }
+  }
+
   checkCategoryOverlap(category) {
-    
+    const overlapCategory = this.#dayCategories.filter((el) => el === category);
+    if (overlapCategory.length !== 2) return true; 
+    this.#dayCategories.push(CategoryGenerator.generate());
   }
 
   getCoachGroup() {
     return this.#coachGroup;
+  }
+
+  getDayCategories() {
+    return this.#dayCategories;
   }
 };
 
