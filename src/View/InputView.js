@@ -19,6 +19,14 @@ const InputView = {
       this.readCoachesName.bind(this),
     );
   },
+
+  readNotEatMenu(name, callback) {
+    this.getUserInput(
+      `\n${name}(이)가 못 먹는 메뉴를 입력해 주세요.\n`,
+      callback,
+      this.readNotEatMenu.bind(this),
+    )
+  },
 };
 
 module.exports = InputView;

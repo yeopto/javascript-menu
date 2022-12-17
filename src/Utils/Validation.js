@@ -19,6 +19,12 @@ const Validation = {
     }
   },
 
+  checkNotEatMenu(notEatMenu) {
+    const notEatMenuArr = notEatMenu.split(',');
+    if (notEatMenuArr.length > 2) {
+      throw new Error('[ERROR] 못먹는 음식이 두개이상이면 안됩니다.');
+    }
+  }
 };
 
 module.exports = Validation;

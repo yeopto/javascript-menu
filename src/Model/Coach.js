@@ -1,10 +1,18 @@
 class Coach {
   #name;
-  #notEatMenu = [];
+  #notEatMenu;
   #eatMenu = [];
 
   constructor(name) {
     this.#name = name;
+  }
+  
+  getNotEatMenu(notEatsMenu) {
+    this.#notEatMenu = notEatsMenu.split(',');
+  }
+
+  getName() {
+    return this.#name;
   }
 }
 
