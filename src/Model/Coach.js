@@ -1,4 +1,5 @@
-const NotEatMenu = require("./NotEatMenu");
+const NotEatMenu = require('./NotEatMenu');
+const RecommendMenu = require('./RecommendMenu');
 
 class Coach {
   #name;
@@ -16,6 +17,18 @@ class Coach {
   setNotEatMenu(input) {
     const menu = input.split(',')
     this.#notEatMenu = new NotEatMenu(menu);
+  }
+
+  getNotEatMenu() {
+    return this.#notEatMenu.getNotEatMenu();
+  }
+
+  setRecommendMenu(menu) {
+    this.#recommendMenu = new RecommendMenu(menu);
+  }
+
+  getRecommendMenu() {
+    return this.#recommendMenu.getRecommendMenu();
   }
 }
 

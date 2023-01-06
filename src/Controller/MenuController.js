@@ -1,4 +1,5 @@
 const CategoryGenerator = require('../Utils/CategoryGenerator');
+const RecommendMenuGenerator = require('../Utils/RecommendMenuGenerator');
 const InputView = require('../View/InputView');
 const OutputView = require('../View/OutputView');
 const Validation = require('../Utils/Validation');
@@ -42,6 +43,22 @@ class MenuController {
       this.#coaches[index].setNotEatMenu(notEatMenus);
       this.getNotEatMenu(index + 1);
     }, this.#coaches[index].getName());
+  }
+
+  makeRecommendMenu() {
+    const category = this.#category.getCategory();
+    
+    this.#coaches.forEach((coach) => {
+      const notEatMenu = coach.getNotEatMenu();
+      const recommendMenus = RecommendMenuGenerator.recommendMenu(category, notEatMenu);
+
+      coach.setRecommendMenu(recommendMenus);
+    });
+  }
+
+  showRecommendMenu() {
+    this.makeRecommendMenu();
+
   }
 }
 

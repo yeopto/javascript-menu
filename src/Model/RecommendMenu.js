@@ -1,4 +1,4 @@
-class RecommandMenu {
+class RecommendMenu {
   #recommendMenu;
 
   constructor(recommendMenu) {
