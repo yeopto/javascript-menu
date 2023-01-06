@@ -58,7 +58,12 @@ class MenuController {
 
   showRecommendMenu() {
     this.makeRecommendMenu();
-
+    OutputView.printResult();
+    OutputView.printCategory(this.#category.getCategory());
+    this.#coaches.forEach((coach) => {
+      OutputView.printMenu(coach.getName(), coach.getRecommendMenu());
+    });
+    OutputView.printEnd();
   }
 }
 

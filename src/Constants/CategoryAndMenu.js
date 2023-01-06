@@ -1,4 +1,4 @@
-const AllCategory = ['일식', '한식', '중식', '아시안', '양식'];
+const AllCategory = Object.freeze(['일식', '한식', '중식', '아시안', '양식']);
 const AllMenu = {
   일식: [
     '규동', 
@@ -56,6 +56,8 @@ const AllMenu = {
     '파니니',
   ],
 };
+
+Object.freeze(AllMenu);
 
 module.exports = {
   AllCategory,

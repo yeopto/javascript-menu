@@ -1,5 +1,5 @@
 const { Random } = require('@woowacourse/mission-utils');
-const { AllCategory } = require('./CategoryAndMenu');
+const { AllCategory } = require('../Constants/CategoryAndMenu');
 
 const CategoryGenerator = {
   generate() {
@@ -15,7 +15,7 @@ const CategoryGenerator = {
     }
 
     return category;
-  }
+  },
 };
 
 module.exports = CategoryGenerator;

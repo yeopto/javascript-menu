@@ -1,5 +1,5 @@
 const { Random } = require('@woowacourse/mission-utils');
-const { AllMenu } = require('./CategoryAndMenu');
+const { AllMenu } = require('../Constants/CategoryAndMenu');
 
 const RecommendMenuGenerator = {
   recommendMenu(category, notEatMenu) {
@@ -28,7 +28,7 @@ const RecommendMenuGenerator = {
     )[0] - 1;
 
     return categoryMenus[RandomIndex];
-  }
+  },
 }
 
 module.exports = RecommendMenuGenerator;
