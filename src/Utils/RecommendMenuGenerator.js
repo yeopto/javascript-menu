@@ -1,12 +1,13 @@
 const { Random } = require('@woowacourse/mission-utils');
 const { AllMenu } = require('../Constants/CategoryAndMenu');
+const { COUNT, CATEGORY_AND_MENU_NUM } = require('../Constants/Constant');
 
 const RecommendMenuGenerator = {
   recommendMenu(category, notEatMenu) {
     const recommendMenu = [];
-    let index = 0;
+    let index = COUNT.zero;
     
-    while (recommendMenu.length < 5) {
+    while (recommendMenu.length < CATEGORY_AND_MENU_NUM.DayCount) {
       const categoryMenus = AllMenu[category[index]];
       const todayCategoryMenu = this.shuffleAndPickMenu(categoryMenus);
       if (
@@ -14,7 +15,7 @@ const RecommendMenuGenerator = {
         || recommendMenu.includes(todayCategoryMenu)
       ) continue;
       recommendMenu.push(todayCategoryMenu);
-      index += 1;
+      index += COUNT.one;
     }
 
     return recommendMenu;
@@ -23,9 +24,9 @@ const RecommendMenuGenerator = {
   shuffleAndPickMenu(categoryMenus) {
     const RandomIndex = Random.shuffle(
       Array(categoryMenus.length)
-        .fill(1)
+        .fill(COUNT.one)
         .map((el, i) => el + i)
-    )[0] - 1;
+    )[COUNT.zero] - COUNT.one;
 
     return categoryMenus[RandomIndex];
   },

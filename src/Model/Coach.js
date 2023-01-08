@@ -1,5 +1,6 @@
 const NotEatMenu = require('./NotEatMenu');
 const RecommendMenu = require('./RecommendMenu');
+const { SPLIT_CHARACTER } = require('../Constants/Constant');
 
 class Coach {
   #name;
@@ -15,7 +16,7 @@ class Coach {
   }
 
   setNotEatMenu(input) {
-    const menu = input.split(',')
+    const menu = input.split(SPLIT_CHARACTER.comma);
     this.#notEatMenu = new NotEatMenu(menu);
   }
 

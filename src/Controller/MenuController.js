@@ -3,6 +3,7 @@ const RecommendMenuGenerator = require('../Utils/RecommendMenuGenerator');
 const InputView = require('../View/InputView');
 const OutputView = require('../View/OutputView');
 const Validation = require('../Utils/Validation');
+const { COUNT, SPLIT_CHARACTER } = require('../Constants/Constant');
 const Category = require('../Model/Category');
 const Coach = require('../Model/Coach');
 
@@ -23,7 +24,7 @@ class MenuController {
     InputView.readCoachesName((names) => {
       Validation.checkCoaches(names);
       
-      const coachNames = names.split(',');
+      const coachNames = names.split(SPLIT_CHARACTER.comma);
       const coaches = [];
 
       coachNames.forEach((coachName) => {
@@ -32,7 +33,7 @@ class MenuController {
 
       this.#coaches = coaches;
 
-      this.getNotEatMenu(0);
+      this.getNotEatMenu(COUNT.zero);
     });
   }
 
@@ -41,7 +42,7 @@ class MenuController {
     InputView.readNotEatMenu((notEatMenus) => {
       Validation.checkNotEatMenu(notEatMenus);
       this.#coaches[index].setNotEatMenu(notEatMenus);
-      this.getNotEatMenu(index + 1);
+      this.getNotEatMenu(index + COUNT.one);
     }, this.#coaches[index].getName());
   }
 

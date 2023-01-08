@@ -1,4 +1,5 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { INPUT_MESSAGE } = require('../Constants/Message');
 
 const InputView = {
   getUserInput(question, callback, redirectInput, name) {
@@ -16,7 +17,7 @@ const InputView = {
 
   readCoachesName(callback) {
     this.getUserInput(
-      '코치의 이름을 입력해 주세요. (, 로 구분)\n',
+      INPUT_MESSAGE.coachName,
       callback,
       this.readCoachesName.bind(this),
     );
@@ -24,7 +25,7 @@ const InputView = {
 
   readNotEatMenu(callback, name) {
     this.getUserInput(
-      `\n${name}(이)가 못 먹는 메뉴를 입력해 주세요.\n`,
+      `\n${name}+ ${INPUT_MESSAGE.notEatMenu}`,
       callback,
       this.readNotEatMenu.bind(this),
       name

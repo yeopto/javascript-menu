@@ -1,27 +1,29 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { SPLIT_CHARACTER } = require('../Constants/Constant');
+const { OUTPUT_MESSAGE } = require('../Constants/Message');
 
 const OutputView  = {
   printStart() {
-    Console.print('점심 메뉴 추천을 시작합니다.\n');
+    Console.print(OUTPUT_MESSAGE.start);
   },
 
   printResult() {
-    Console.print('\n메뉴 추천 결과입니다.');
-    Console.print('[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]');
+    Console.print(OUTPUT_MESSAGE.result);
+    Console.print(OUTPUT_MESSAGE.divisionOfDay);
   },
 
   printCategory(category) {
-    category.unshift('카테고리');
-    Console.print(`[ ${category.join(' | ')} ]`);
+    category.unshift(OUTPUT_MESSAGE.category);
+    Console.print(`[ ${category.join(SPLIT_CHARACTER.divisionLine)} ]`);
   },
 
   printMenu(name, menu) {
     menu.unshift(name);
-    Console.print(`[ ${menu.join(' | ')} ]`);
+    Console.print(`[ ${menu.join(SPLIT_CHARACTER.divisionLine)} ]`);
   },
 
   printEnd() {
-    Console.print('\n추천을 완료했습니다.');
+    Console.print(OUTPUT_MESSAGE.end);
     Console.close();
   }
 };
