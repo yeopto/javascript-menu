@@ -1,4 +1,6 @@
-const AllCategory = Object.freeze(['일식', '한식', '중식', '아시안', '양식']);
+const ObjectUtils = require('../Utils/ObjectUtils');
+
+const AllCategory = ObjectUtils.deepFreeze(['일식', '한식', '중식', '아시안', '양식']);
 const AllMenu = {
   일식: [
     '규동', 
@@ -16,7 +18,7 @@ const AllMenu = {
     '김치찌개', 
     '쌈밥', 
     '된장찌개', 
-    '비빔밥', 
+    '비빔밥',
     '칼국수', 
     '불고기', 
     '떡볶이', 
@@ -57,7 +59,7 @@ const AllMenu = {
   ],
 };
 
-Object.freeze(AllMenu);
+ObjectUtils.deepFreeze(AllMenu);
 
 module.exports = {
   AllCategory,
